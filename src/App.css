@@ -1,0 +1,26 @@
+.products-link {
+  background-color: #245e2e;
+  color: #fff;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  border: 2px solid #245e2e;
+  transition: 0.3s all;
+}
+
+.products-link:hover {
+  background-color: #fff;
+  color: #245e2e;
+}
+
+.nav-link {
+  color: #245e2e;
+  font-weight: 600;
+}
