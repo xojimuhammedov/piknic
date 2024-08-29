@@ -4,6 +4,8 @@ import Telegram from "../assets/svg/Telegram";
 import { Link as LinkChakra } from "@chakra-ui/react";
 import PiknicImage from "../assets/piknic.jpg";
 import { Link } from "react-router-dom";
+import TelegramIcon from "../assets/telegram.webp";
+import InstagramIcon from "../assets/instagram.png";
 
 function Nav() {
   return (
@@ -17,10 +19,10 @@ function Nav() {
             <LinkChakra
               target="_blank"
               href="https://www.instagram.com/Piknic_uz">
-              <Instagram height={26} width={26} />
+              <Image src={InstagramIcon} {...css.image} />
             </LinkChakra>
             <LinkChakra target="_blank" href="https://t.me/piknic_uz">
-              <Telegram height={26} width={26} />
+              <Image src={TelegramIcon} {...css.image} />
             </LinkChakra>
             {/* <LinkChakra
               target="_blank"
@@ -47,5 +49,9 @@ export default Nav;
 const css = {
   box: {
     padding: "10px 0",
+  },
+  image: {
+    width: "25px",
+    height: "25px",
   },
 };
