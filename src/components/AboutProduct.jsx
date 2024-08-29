@@ -83,8 +83,10 @@ function AboutProduct() {
                 __html: products?.description,
               }}
             />
-            <Heading {...css.price}>Narxi: {products?.price} so`m</Heading>
-            <Link href="https://t.me/Piknicuzz" {...css.button}>
+            <Heading {...css.price}>
+              Narxi: <strong>{products?.price}</strong> so`m
+            </Heading>
+            <Link target="_blank" href="https://t.me/Piknicuzz" {...css.button}>
               <XTelegram height={26} width={26} /> Sotuvchi bilan bog`lanish
             </Link>
           </Box>
@@ -125,7 +127,7 @@ const css = {
       lg: "45px",
     },
     fontWeight: "bold",
-    color: "#245E2E",
+    color: "#318e40",
     lineHeight: {
       base: "35px",
       lg: "50px",
@@ -137,7 +139,7 @@ const css = {
   },
   text: {
     fontSize: "16px",
-    color: "#245E2E",
+    color: "#000",
     lineHeight: "26px",
     width: {
       base: "100%",
@@ -147,22 +149,22 @@ const css = {
     fontWeight: 500,
   },
   price: {
-    color: "#245E2E",
+    color: "#000",
     fontSize: "25px",
     lineHeight: "40px",
-    fontWeight: "bold",
+    // fontWeight: "bold",
     marginTop: "20px",
     marginBottom: "20px",
   },
   button: {
-    background: "#245E2E",
+    background: "#318e40",
     color: "#fff",
     fontWeight: "600 !important",
     transition: "0.3s ease",
     fontSize: "16px",
     lineHeight: "26px",
     cursor: "pointer",
-    border: "2px solid #245E2E",
+    border: "2px solid #318e40",
     letterSpacing: "1.5px",
     padding: "8px",
     borderRadius: "8px",
@@ -170,7 +172,7 @@ const css = {
     alignItems: "center",
     gap: "10px",
     width: "300px",
-    justifyContent:"center",
+    justifyContent: "center",
 
     _hover: {
       textDecoration: "none",

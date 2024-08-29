@@ -52,14 +52,14 @@ const css = {
     fontWeight: 700,
     textAlign: "center",
     marginBottom: "20px",
-    color: "#245E2E",
+    color: "#318e40",
   },
   name: {
     fontSize: "25px",
     lineHeight: "40px",
     fontWeight: 700,
     textAlign: "center",
-    color: "#245E2E",
+    color: "#318e40",
   },
   image: {
     borderRadius: "12px 12px 0 0",

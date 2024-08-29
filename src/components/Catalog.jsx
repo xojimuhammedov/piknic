@@ -63,7 +63,7 @@ const css = {
     lineHeight: "40px",
     fontWeight: 700,
     marginBottom: "20px",
-    color: "#245E2E",
+    color: "#318e40",
   },
   image: {
     borderRadius: "12px 12px 0 0",
@@ -76,14 +76,14 @@ const css = {
     fontSize: "18px",
     lineHeight: "40px",
     fontWeight: 700,
-    color: "#245E2E",
+    color: "#318e40",
     textAlign: "center",
   },
   price: {
     fontSize: "18px",
     lineHeight: "40px",
     fontWeight: 700,
-    color: "#245E2E",
+    color: "#318e40",
   },
   item: {
     boxShadow: "0 9px 18px 0 rgba(144,173,248,0.25)",

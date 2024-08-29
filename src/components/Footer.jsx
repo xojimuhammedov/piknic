@@ -14,7 +14,7 @@ function Footer() {
           <Heading {...css.title}>
             Piknic uchun kerakli buyumlarni sotib olishni xohlasizmi?
           </Heading>
-          <Link {...css.number} href="tel:+998990691991">
+          <Link {...css.number} href="https://t.me/Piknicuzz">
             Bog`lanish
           </Link>
         </Flex>
@@ -35,7 +35,7 @@ export default Footer;
 
 const css = {
   box: {
-    background: "#245E2E",
+    background: "#318e40",
     padding: "40px 0",
   }, 
   title: {
