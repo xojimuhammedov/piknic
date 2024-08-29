@@ -11,7 +11,7 @@ import "swiper/css/navigation";
 function AboutProduct() {
   const [products, setProducts] = useState([]);
   const { id } = useParams();
-  const videoRef = useRef(null);
+  const videoRef = useRef();
 
   useEffect(() => {
     axios
@@ -24,7 +24,10 @@ function AboutProduct() {
 
   useEffect(() => {
     if (videoRef.current && products?.video_src) {
-      videoRef.current.play();
+      videoRef.current.load();
+      videoRef.current.play().catch((error) => {
+        console.error("Video cannot be played:", error);
+      });
     }
   }, [products?.video_src]);
   return (
@@ -65,14 +68,14 @@ function AboutProduct() {
             </Link>
           </Box>
         </Flex>
-        <Box>
-          <video className="course-video" ref={videoRef} loop controls>
-            <source
-              src={`https://picnic.propartnyor.uz/api/uploads/images/${products?.video_src}`}
-              type="video/mp4"
-            />
-          </video>
-        </Box>
+        {/* <Flex> */}
+        <video className="course-video" ref={videoRef} autoPlay loop controls>
+          <source
+            src={`https://picnic.propartnyor.uz/api/uploads/images/${products?.video_src}`}
+            type="video/mp4"
+          />
+        </video>
+        {/* </Flex> */}
       </Box>
     </Box>
   );
