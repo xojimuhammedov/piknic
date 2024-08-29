@@ -1,6 +1,6 @@
 import { Box, Flex, Heading, Image, Link, Text } from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -11,6 +11,7 @@ import "swiper/css/navigation";
 function AboutProduct() {
   const [products, setProducts] = useState([]);
   const { id } = useParams();
+  const videoRef = useRef(null);
 
   useEffect(() => {
     axios
@@ -21,7 +22,12 @@ function AboutProduct() {
       });
   }, [id]);
 
-  console.log(products);
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play();
+    }
+  }, []);
+  console.log(products?.video_src);
   return (
     <Box p={"25px 0"}>
       <Box className="container">
@@ -60,12 +66,14 @@ function AboutProduct() {
             </Link>
           </Box>
         </Flex>
-        <video className="product-video" autoPlay muted width="100%" controls>
-          <source
-            src={`https://picnic.propartnyor.uz/api/uploads/images/${products?.video_src}`}
-            type="video/mp4"
-          />
-        </video>
+        <Box>
+          <video className="course-video" ref={videoRef} loop muted controls>
+            <source
+              src={`https://picnic.propartnyor.uz/api/uploads/images/${products?.video_src}`}
+              type="video/mp4"
+            />
+          </video>
+        </Box>
       </Box>
     </Box>
   );

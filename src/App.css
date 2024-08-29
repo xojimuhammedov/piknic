@@ -25,7 +25,21 @@
   font-weight: 600;
 }
 
-
-.product-video{
+.product-video {
   margin-top: 30px;
+}
+
+.course-video {
+  width: 70%;
+  object-fit: fill;
+  height: 700px;
+  margin-top: 20px;
+}
+
+
+@media (max-width: 768px) {
+  .course-video{
+    width: 100%;
+    height: auto;
+  }
 }

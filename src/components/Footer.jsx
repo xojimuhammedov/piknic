@@ -6,7 +6,11 @@ function Footer() {
   return (
     <Box {...css.box}>
       <Box className="container">
-        <Flex align={"center"} justifyContent={"space-between"}>
+        <Flex
+          gap={"20px"}
+          flexDirection={{ base: "column", lg: "row" }}
+          align={{ base: "baseline", lg: "center" }}
+          justifyContent={"space-between"}>
           <Heading {...css.title}>
             Piknic uchun kerakli buyumlarni sotib olishni xohlasizmi?
           </Heading>
@@ -35,9 +39,15 @@ const css = {
     padding: "40px 0",
   },
   title: {
-    fontSize: "30px",
+    fontSize: {
+      base: "20px",
+      lg: "30px",
+    },
     color: "#fff",
-    lineHeight: "40px",
+    lineHeight: {
+      base: "28px",
+      lg: "40px",
+    },
   },
   number: {
     border: "2px solid #fff",
