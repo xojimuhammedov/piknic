@@ -5,6 +5,7 @@ import Nav from "./components/Nav";
 import Product from "./components/Products";
 import Catalog from "./components/Catalog";
 import AboutProduct from "./components/AboutProduct";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/products/:id" element={<Catalog />} />
         <Route path="/products-about/:id" element={<AboutProduct />} />
       </Routes>
+      <Footer />
     </>
   );
 }

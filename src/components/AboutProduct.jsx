@@ -20,6 +20,8 @@ function AboutProduct() {
         console.log(err);
       });
   }, [id]);
+
+  console.log(products);
   return (
     <Box p={"25px 0"}>
       <Box className="container">
@@ -46,13 +48,24 @@ function AboutProduct() {
           </Box>
           <Box>
             <Heading {...css.title}>{products?.title}</Heading>
-            <Text {...css.text}>{products?.description}</Text>
+            <Text
+              {...css.text}
+              dangerouslySetInnerHTML={{
+                __html: products?.description,
+              }}
+            />
             <Heading {...css.price}>Narxi: {products?.price} so`m</Heading>
             <Link href="tel:+998990691991" {...css.button}>
               Bog`lanish
             </Link>
           </Box>
         </Flex>
+        <video className="product-video" autoPlay muted width="100%" controls>
+          <source
+            src={`https://picnic.propartnyor.uz/api/uploads/images/${products?.video_src}`}
+            type="video/mp4"
+          />
+        </video>
       </Box>
     </Box>
   );
