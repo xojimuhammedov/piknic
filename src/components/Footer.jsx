@@ -37,7 +37,7 @@ const css = {
   box: {
     background: "#245E2E",
     padding: "40px 0",
-  },
+  }, 
   title: {
     fontSize: {
       base: "20px",

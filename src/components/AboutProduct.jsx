@@ -23,11 +23,10 @@ function AboutProduct() {
   }, [id]);
 
   useEffect(() => {
-    if (videoRef.current) {
+    if (videoRef.current && products?.video_src) {
       videoRef.current.play();
     }
-  }, []);
-  console.log(products?.video_src);
+  }, [products?.video_src]);
   return (
     <Box p={"25px 0"}>
       <Box className="container">
@@ -67,7 +66,7 @@ function AboutProduct() {
           </Box>
         </Flex>
         <Box>
-          <video className="course-video" ref={videoRef} loop muted controls>
+          <video className="course-video" ref={videoRef} loop controls>
             <source
               src={`https://picnic.propartnyor.uz/api/uploads/images/${products?.video_src}`}
               type="video/mp4"
