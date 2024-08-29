@@ -1,4 +1,12 @@
-import { Box, Flex, Heading, Image, Link, Text } from "@chakra-ui/react";
+import {
+  Box,
+  Flex,
+  Heading,
+  Image,
+  Link,
+  Spinner,
+  Text,
+} from "@chakra-ui/react";
 import { useParams } from "react-router-dom";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
@@ -10,6 +18,7 @@ import "swiper/css/navigation";
 
 function AboutProduct() {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const videoRef = useRef();
 
@@ -19,6 +28,7 @@ function AboutProduct() {
       .then((res) => setProducts(res.data.data))
       .catch((err) => {
         console.log(err);
+        setLoading(false);
       });
   }, [id]);
 
@@ -30,6 +40,16 @@ function AboutProduct() {
       });
     }
   }, [products?.video_src]);
+
+  if (loading) {
+    <Spinner
+      thickness="4px"
+      speed="0.65s"
+      emptyColor="gray.200"
+      color="#245E2E"
+      size="xl"
+    />;
+  }
   return (
     <Box p={"25px 0"}>
       <Box className="container">
@@ -63,8 +83,8 @@ function AboutProduct() {
               }}
             />
             <Heading {...css.price}>Narxi: {products?.price} so`m</Heading>
-            <Link href="tel:+998990691991" {...css.button}>
-              Bog`lanish
+            <Link href="https://t.me/Piknicuzz" {...css.button}>
+              Sotuvchi bilan bog`lanish
             </Link>
           </Box>
         </Flex>

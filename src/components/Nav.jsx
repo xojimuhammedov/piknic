@@ -32,9 +32,9 @@ function Nav() {
               href="https://www.youtube.com/@uzbekistanalstar4978">
               <YouTube height={18} width={20} />
             </LinkChakra> */}
-            <a className="nav-link nav-links" href="tel:+998990691991">
+            {/* <a className="nav-link nav-links" href="tel:+998990691991">
               +998 99 069 19 91
-            </a>
+            </a> */}
           </Flex>
         </Flex>
       </Box>
