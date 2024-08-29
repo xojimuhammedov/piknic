@@ -39,7 +39,7 @@ function Catalog() {
                   align={"center"}
                   justifyContent={"space-between"}>
                   <Heading {...css.name}>{evt?.title}</Heading>
-                  <Heading {...css.price}>{evt?.price} so`m</Heading>
+                  {/* <Heading {...css.price}>{evt?.price} so`m</Heading> */}
                 </Flex>
                 <Link
                   className="products-link"
@@ -77,6 +77,7 @@ const css = {
     lineHeight: "40px",
     fontWeight: 700,
     color: "#245E2E",
+    textAlign: "center",
   },
   price: {
     fontSize: "18px",

@@ -15,6 +15,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
+import XTelegram from "../assets/svg/XTelegram";
 
 function AboutProduct() {
   const [products, setProducts] = useState([]);
@@ -84,7 +85,7 @@ function AboutProduct() {
             />
             <Heading {...css.price}>Narxi: {products?.price} so`m</Heading>
             <Link href="https://t.me/Piknicuzz" {...css.button}>
-              Sotuvchi bilan bog`lanish
+              <XTelegram height={26} width={26} /> Sotuvchi bilan bog`lanish
             </Link>
           </Box>
         </Flex>
@@ -163,17 +164,23 @@ const css = {
     cursor: "pointer",
     border: "2px solid #245E2E",
     letterSpacing: "1.5px",
-    padding: "8px 15px",
+    padding: "8px",
     borderRadius: "8px",
+    display: "flex",
+    alignItems: "center",
+    gap: "10px",
+    width: "300px",
+    justifyContent:"center",
 
     _hover: {
-      background: "#fff",
-      color: "#245E2E",
-      border: "2px solid #245E2E",
-      cursor: "pointer",
-      transition: "0.3s ease",
-      letterSpacing: "1.5px",
-      transform: "scale(1.02)",
+      textDecoration: "none",
+      // background: "#fff",
+      // color: "#245E2E",
+      // border: "2px solid #245E2E",
+      // cursor: "pointer",
+      // transition: "0.3s ease",
+      // letterSpacing: "1.5px",
+      // transform: "scale(1.02)",
     },
   },
 };
