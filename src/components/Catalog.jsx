@@ -2,11 +2,12 @@ import { Box, Flex, Heading, Image, SimpleGrid } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-
+import Skeleton from "./Skeleton";
 
 function Catalog() {
   const [catalog, setCatalog] = useState([]);
   const { id } = useParams();
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -16,7 +17,10 @@ function Catalog() {
           response?.data?.data.filter((evt) => evt.category_id === id)
         );
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => {
+        setLoading(false);
+      });
   }, [id]);
   return (
     <>
@@ -27,28 +31,37 @@ function Catalog() {
             columns={{ xl: 3, lg: 3, md: 2, sm: 2, base: 1 }}
             gap={"20px"}
             {...css.list}>
-            {catalog.map((evt, index) => (
-              <Flex key={index} {...css.item}>
-                <Image
-                  {...css.image}
-                  alt="Image"
-                  src={`https://picnic.propartnyor.uz/api/uploads/images/${evt?.image_src}`}
-                />
-                <Flex
-                  mb={"10px"}
-                  p={"0 15px"}
-                  align={"center"}
-                  justifyContent={"space-between"}>
-                  <Heading {...css.name}>{evt?.title}</Heading>
-                  {/* <Heading {...css.price}>{evt?.price} so`m</Heading> */}
-                </Flex>
-                <Link
-                  className="products-link"
-                  to={`/products-about/${evt?.id}`}>
-                  Batafsil ma'lumot
-                </Link>
-              </Flex>
-            ))}
+            {loading ? (
+              <>
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+              </>
+            ) : (
+              <>
+                {catalog.map((evt, index) => (
+                  <Flex key={index} {...css.item}>
+                    <Image
+                      {...css.image}
+                      alt="Image"
+                      src={`https://picnic.propartnyor.uz/api/uploads/images/${evt?.image_src}`}
+                    />
+                    <Flex
+                      mb={"10px"}
+                      p={"0 15px"}
+                      align={"center"}
+                      justifyContent={"space-between"}>
+                      <Heading {...css.name}>{evt?.title}</Heading>
+                    </Flex>
+                    <Link
+                      className="products-link"
+                      to={`/products-about/${evt?.id}`}>
+                      Batafsil ma'lumot
+                    </Link>
+                  </Flex>
+                ))}
+              </>
+            )}
           </SimpleGrid>
         </Box>
       </Box>

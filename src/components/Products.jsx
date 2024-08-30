@@ -2,9 +2,11 @@ import { Box, Flex, Heading, Image, SimpleGrid } from "@chakra-ui/react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import Skeleton from "./Skeleton";
 
 function Product() {
   const [catalog, setCatalog] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     axios
@@ -12,8 +14,12 @@ function Product() {
       .then((response) => {
         setCatalog(response?.data?.data);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => console.error(err))
+      .finally(() => {
+        setLoading(false);
+      });
   }, []);
+
   return (
     <>
       <Box id="product" p="35px 0">
@@ -24,18 +30,28 @@ function Product() {
             gap={"25px"}
             mt="30px"
             {...css.list}>
-            {catalog.map((evt, index) => (
-              <Link to={`/products/${evt?.id}`} key={index}>
-                <Flex {...css.item}>
-                  <Image
-                    {...css.image}
-                    alt="Image"
-                    src={`https://picnic.propartnyor.uz/api/uploads/images/${evt?.image_src}`}
-                  />
-                  <Heading {...css.name}>{evt.name}</Heading>
-                </Flex>
-              </Link>
-            ))}
+            {loading ? (
+              <>
+                <Skeleton />
+                <Skeleton />
+                <Skeleton />
+              </>
+            ) : (
+              <>
+                {catalog.map((evt, index) => (
+                  <Link to={`/products/${evt?.id}`} key={index}>
+                    <Flex {...css.item}>
+                      <Image
+                        {...css.image}
+                        alt="Image"
+                        src={`https://picnic.propartnyor.uz/api/uploads/images/${evt?.image_src}`}
+                      />
+                      <Heading {...css.name}>{evt.name}</Heading>
+                    </Flex>
+                  </Link>
+                ))}
+              </>
+            )}
           </SimpleGrid>
         </Box>
       </Box>
