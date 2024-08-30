@@ -17,8 +17,17 @@ import "swiper/css";
 import "swiper/css/navigation";
 import XTelegram from "../assets/svg/XTelegram";
 
+// import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import "yet-another-react-lightbox/styles.css";
+import { Lightbox } from "yet-another-react-lightbox";
+// import Share from "yet-another-react-lightbox/plugins/share";
+
+import LupaIcon from "../assets/lupa.jpg";
+import { Fullscreen } from "yet-another-react-lightbox/plugins";
+
 function AboutProduct() {
   const [products, setProducts] = useState([]);
+  const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
   const { id } = useParams();
   const videoRef = useRef();
@@ -66,10 +75,15 @@ function AboutProduct() {
               loop
               className="mySwiper">
               {products?.product_images?.map((item, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide style={{ position: "relative" }} key={index}>
                   <Image
                     {...css.image}
                     src={`https://picnic.propartnyor.uz/api/uploads/images/${item?.images_src}`}
+                  />
+                  <Image
+                    onClick={() => setOpen(true)}
+                    {...css.lupa}
+                    src={LupaIcon}
                   />
                 </SwiperSlide>
               ))}
@@ -98,7 +112,17 @@ function AboutProduct() {
             type="video/mp4"
           />
         </video>
-        {/* </Flex> */}
+        <Lightbox
+          open={open}
+          close={() => setOpen(false)}
+          plugins={[Fullscreen]}
+          // plugins={[Share]}
+          slides={products?.product_images?.map((item) => {
+            return {
+              src: `https://picnic.propartnyor.uz/api/uploads/images/${item?.images_src}`,
+            };
+          })}
+        />
       </Box>
     </Box>
   );
@@ -176,13 +200,15 @@ const css = {
 
     _hover: {
       textDecoration: "none",
-      // background: "#fff",
-      // color: "#245E2E",
-      // border: "2px solid #245E2E",
-      // cursor: "pointer",
-      // transition: "0.3s ease",
-      // letterSpacing: "1.5px",
-      // transform: "scale(1.02)",
     },
+  },
+  lupa: {
+    width: "45px",
+    height: "45px",
+    position: "absolute",
+    top: "2%",
+    right: "3%",
+    cursor: "pointer",
+    borderRadius: "50%",
   },
 };

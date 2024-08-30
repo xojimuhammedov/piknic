@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
+
 function Catalog() {
   const [catalog, setCatalog] = useState([]);
   const { id } = useParams();
@@ -44,7 +45,7 @@ function Catalog() {
                 <Link
                   className="products-link"
                   to={`/products-about/${evt?.id}`}>
-                  Ko`rish
+                  Batafsil ma'lumot
                 </Link>
               </Flex>
             ))}
