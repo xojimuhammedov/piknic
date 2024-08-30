@@ -104,12 +104,14 @@ function AboutProduct() {
           </Box>
         </Flex>
         {/* <Flex> */}
-        <video className="course-video" ref={videoRef} autoPlay loop controls>
-          <source
-            src={`https://picnic.propartnyor.uz/api/uploads/images/${products?.video_src}`}
-            type="video/mp4"
-          />
-        </video>
+        {products?.video_src && (
+          <video className="course-video" ref={videoRef} autoPlay loop controls>
+            <source
+              src={`https://picnic.propartnyor.uz/api/uploads/images/${products?.video_src}`}
+              type="video/mp4"
+            />
+          </video>
+        )}
         <Lightbox
           open={open}
           close={() => setOpen(false)}
