@@ -17,10 +17,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import XTelegram from "../assets/svg/XTelegram";
 
-// import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
 import "yet-another-react-lightbox/styles.css";
 import { Lightbox } from "yet-another-react-lightbox";
-// import Share from "yet-another-react-lightbox/plugins/share";
 
 import LupaIcon from "../assets/lupa.jpg";
 import { Fullscreen } from "yet-another-react-lightbox/plugins";
@@ -116,7 +114,6 @@ function AboutProduct() {
           open={open}
           close={() => setOpen(false)}
           plugins={[Fullscreen]}
-          // plugins={[Share]}
           slides={products?.product_images?.map((item) => {
             return {
               src: `https://picnic.propartnyor.uz/api/uploads/images/${item?.images_src}`,
