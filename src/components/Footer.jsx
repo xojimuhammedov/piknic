@@ -1,4 +1,4 @@
-import { Box, Flex, Heading, Link } from "@chakra-ui/react";
+import { Box, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import XInstagram from "../assets/svg/XInstagram";
 import XTelegram from "../assets/svg/XTelegram";
 
@@ -18,6 +18,7 @@ function Footer() {
             Bog`lanish
           </Link>
         </Flex>
+        <Text {...css.text}>Bizning ijtimoiy tarmoqlardamiz</Text>
         <Flex mt={"30px"} gap="20px" align="center">
           <Link target="_blank" href="https://www.instagram.com/Piknic_uz">
             <XInstagram height={26} width={26} />
@@ -37,7 +38,7 @@ const css = {
   box: {
     background: "#318e40",
     padding: "40px 0",
-  }, 
+  },
   title: {
     fontSize: {
       base: "20px",
@@ -64,5 +65,11 @@ const css = {
       color: "#245E2E",
       backgroundColor: "#fff",
     },
+  },
+  text: {
+    color: "#fff",
+    fontSize: "16px",
+    lineHeight: "24px",
+    fontWeight: "500",
   },
 };
